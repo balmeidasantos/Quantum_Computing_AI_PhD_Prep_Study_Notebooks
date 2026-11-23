@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-ai-phd-prep"
+version = "0.1.0"
+description = "Study notebooks, mathematical derivations, and code implementations for PhD preparation in Quantum Computing and AI."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name" }
+]
+
+# Core dependencies shared across all study notebooks
+dependencies = [
+    "jupyterlab>=4.2.0",
+    "ipykernel>=6.29.0",
+    "ipywidgets>=8.1.0",
+    "matplotlib>=3.9.0",
+    "seaborn>=0.13.0",
+    "numpy>=1.26.0",
+    "scipy>=1.13.0",
+    "pandas>=2.2.0",
+    "sympy>=1.13.0",
+]
+
+[project.optional-dependencies]
+# 01 — Algorithms & Graph Theory
+algorithms = [
+    "networkx>=3.3",
+]
+
+# 02 — Probability & Practical Statistics
+stats = [
+    "statsmodels>=0.14.0",
+]
+
+# 03A — Classical Machine Learning & Deep Learning
+ml = [
+    "scikit-learn>=1.5.0",
+    "torch>=2.4.0",
+    "torchvision>=0.19.0",
+    "fastai>=2.7.17",
+    "tensorflow>=2.17.0",
+]
+
+# 03B — Generative AI & Agents (LangChain / LangGraph)
+genai = [
+    "langchain>=0.3.0",
+    "langgraph>=0.2.0",
+    "langchain-community>=0.3.0",
+]
+
+# 04 — Cloud & MLOps
+mlops = [
+    "mlflow>=2.16.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+]
+
+# 05 — Quantum Computing & Quantum Machine Learning
+quantum = [
+    "qiskit>=1.2.0",
+    "qiskit-aer>=0.15.0",
+    "pennylane>=0.38.0",
+]
+
+# Developer & Notebook Hygiene Tools
+dev = [
+    "nbstripout>=0.7.1",
+    "ruff>=0.6.0",
+    "pytest>=8.3.0",
+]
+
+# Install everything at once
+all = [
+    "quantum-ai-phd-prep[algorithms,stats,ml,genai,mlops,quantum,dev]",
+]
+
+[tool.setuptools]
+packages = []
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
